@@ -5,6 +5,7 @@ import { checkProps, findByTestAttr } from "../../test/testUtils";
 // import checkPropTypes from "check-prop-types";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
+const defaultProps = { success: false };
 
 /**
  * Factory function to create a ShallowWrapper for the Congrats Component
@@ -14,7 +15,8 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
  */
 
 const setup = (props = {}) => {
-  return shallow(<Congrats {...props} />);
+  const setupProps = { ...defaultProps, ...props };
+  return shallow(<Congrats {...setupProps} />);
 };
 
 test("Renders without Error", () => {
@@ -30,7 +32,7 @@ test("renders no text when 'success' prop is false", () => {
 });
 
 test("Renders non-empty congrats message when success prop is true", () => {
-  const wrapper = setup({ success: false });
+  const wrapper = setup({ success: true });
   const message = findByTestAttr(wrapper, "congrats-message");
   expect(message.text().length).not.toBe(0);
 });
