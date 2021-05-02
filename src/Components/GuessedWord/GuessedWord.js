@@ -9,6 +9,12 @@ const GuessedWord = (props) => {
       <span data-test="guess-instructions"> Try to guess the secret word</span>
     );
   } else {
+    let guessedWordsRows = props.guessedWords.map((word, index) => {
+      <tr data-test="guessed-word" key={index}>
+        <td>{word.guessedWord}</td>
+        <td>{word.letterMatchedCount}</td>
+      </tr>;
+    });
     content = (
       <div data-test="guessed-words">
         <h3>Words</h3>
@@ -19,6 +25,7 @@ const GuessedWord = (props) => {
               <th>Matching Letters</th>
             </tr>
           </thead>
+          <tbody>{guessedWordsRows}</tbody>
         </table>
       </div>
     );
