@@ -4,7 +4,7 @@ import { findByTestAttr, checkProp, checkProps } from "../../test/testUtils";
 import GuessedWords from "./GuessedWord";
 
 const defaultProps = {
-  guessedWords: [{ guessedWord: "train", letterMatched: 3 }],
+  guessedWords: [{ guessedWord: "train", letterMatchedCount: 3 }],
 };
 
 /**
@@ -50,10 +50,10 @@ describe("if there are no words guessed", () => {
 describe("If there are words guessed", () => {
   let wrapper;
 
-  let guessedWords = [
-    { guessedWord: "train", letterMatched: 3 },
-    { guessedWord: "party", letterMatched: 5 },
-    { guessedWord: "agile", letterMatched: 1 },
+  const guessedWords = [
+    { guessedWord: "train", letterMatchedCount: 3 },
+    { guessedWord: "party", letterMatchedCount: 5 },
+    { guessedWord: "agile", letterMatchedCount: 1 },
   ];
 
   beforeEach(() => {

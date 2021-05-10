@@ -9,17 +9,18 @@ const GuessedWord = (props) => {
       <span data-test="guess-instructions"> Try to guess the secret word</span>
     );
   } else {
-    let guessedWordsRows = props.guessedWords.map((word, index) => {
+    const guessedWordsRows = props.guessedWords.map((word, index) => (
       <tr data-test="guessed-word" key={index}>
         <td>{word.guessedWord}</td>
         <td>{word.letterMatchedCount}</td>
-      </tr>;
-    });
+      </tr>
+    ));
+
     content = (
       <div data-test="guessed-words">
         <h3>Words</h3>
-        <table>
-          <thead>
+        <table className="table table-sm">
+          <thead className="thead-light">
             <tr>
               <th>Guess</th>
               <th>Matching Letters</th>
@@ -37,7 +38,7 @@ GuessedWord.propTypes = {
   guessedWords: PropTypes.arrayOf(
     PropTypes.shape({
       guessedWord: PropTypes.string.isRequired,
-      letterMatched: PropTypes.number.isRequired,
+      letterMatchedCount: PropTypes.number.isRequired,
     })
   ).isRequired,
 };
