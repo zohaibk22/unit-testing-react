@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { findByTestAttr, checkProp, checkProps } from "../../test/testUtils";
+import { findByTestAttr, checkProps } from "../../test/testUtils";
 import GuessedWords from "./GuessedWord";
 
 const defaultProps = {
